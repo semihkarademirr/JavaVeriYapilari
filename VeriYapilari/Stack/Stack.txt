@@ -1,0 +1,42 @@
+
+public class stack {
+
+	market [] stack;
+	int topOfStack;
+	int capacity;
+	
+	stack(int capacity){
+		this.capacity = capacity;
+		stack = new market[capacity];
+		topOfStack = -1;
+	}
+	
+	void push(market element) {
+		
+		if (topOfStack == capacity-1) {
+			
+			System.out.println("overflow...");
+			
+		}else {
+			topOfStack++;
+			stack[topOfStack] = element;
+			System.out.println();
+			
+		}
+	}
+	
+	
+	
+	market pop() {
+		if(topOfStack<0) {
+			System.out.println("underflow...");
+			return null;
+		}else {
+			market temp = stack[topOfStack];
+			topOfStack--;
+			return temp;
+		}
+	}
+}
+
+

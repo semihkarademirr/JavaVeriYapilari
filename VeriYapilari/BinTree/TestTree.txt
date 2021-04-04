@@ -1,0 +1,23 @@
+
+public class TestTree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		BinTree bst = new BinTree();
+		
+		bst.add(27);
+		bst.add(14);
+		bst.add(35);
+		bst.add(10);
+		bst.add(19);
+		bst.add(31);
+		bst.add(42);
+
+		bst.printPreOrder();
+		System.out.println("************");
+		bst.printInOrder();
+		System.out.println("************");
+	}
+
+}

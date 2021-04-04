@@ -1,0 +1,34 @@
+
+public class StackMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		stack stc = new stack(3);
+	
+		
+		
+		stc.push(new market(1, "karpuz "));
+		stc.push(new market(2, "elma "));
+		stc.push(new market(3, "cilek "));
+		
+		System.out.println("MARKETIMIZE HOSGELDINIZ EN TAZE URUNLERIMIZ SIRASIYLA");
+		System.out.println("-------------------------------------------------------");
+		System.out.println("Siparisleriniz sirasiyla;");
+		System.out.println(stc.pop().isim);
+		System.out.println(stc.pop().isim);
+		System.out.println(stc.pop().isim);
+		
+		
+		
+		System.out.println("-------------------------------------------------------");
+		System.out.println("MARKETIMIZI TERCIH ETTIGINIZ ICIN TESEKKURLER");
+		
+		
+		
+	}
+	
+	
+
+}
+

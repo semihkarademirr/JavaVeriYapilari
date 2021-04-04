@@ -1,0 +1,193 @@
+
+public class ProjeLL {
+	
+	Eleman bas;
+	Eleman son;
+	
+	public ProjeLL() {
+		
+		bas = null;
+		son = null;
+	}
+	
+	public void basaEkle(int sayi ) {
+		
+		Eleman yeniEleman = new Eleman( sayi );
+		
+		if(doluMu()) {
+		
+			yeniEleman.siradaki = bas;
+			bas = yeniEleman;
+			
+		}else {
+			
+			bas = yeniEleman;
+			son = yeniEleman;
+		
+		}	
+	}
+	
+	public void sonaEkle(int sayi ) {
+		
+		Eleman yeniEleman = new Eleman( sayi );
+		
+		if(doluMu()) {
+			
+			son.siradaki = yeniEleman;
+			son = yeniEleman;
+				
+			}else {
+				bas = yeniEleman;
+				son = yeniEleman;	
+			}
+	}
+
+	public void indeksSil( int degistir) {
+		
+		if(doluMu() && degistir >= 0 ) {
+			
+			if( bas == son) {
+				
+				bas = null;
+				son = null;
+				
+			}else {
+				if( degistir == 0) {
+					
+					Eleman yeniBas = bas.siradaki;
+					bas.siradaki = null;
+					bas = yeniBas;
+					
+			}else {
+				Eleman isaretci1 = null;
+				Eleman isaretci2 = bas;
+				int mevcutDegistir = 0;	
+				
+				while(isaretci2 != null && mevcutDegistir < degistir) {
+					isaretci1 = isaretci2;
+					isaretci2 = isaretci2.siradaki;
+					mevcutDegistir++;
+				}
+				if(isaretci2 != null)
+					
+					if(isaretci2 == son ) {
+						
+						son = isaretci1;
+						isaretci1.siradaki = null;
+					}else {
+						Eleman isaretci3 = isaretci2.siradaki;
+						isaretci2.siradaki = null;
+						isaretci1.siradaki = isaretci3;
+						
+					}
+			     }
+			}									
+		}
+			
+	}		
+	
+	public void indeksDegisEkle( int sayi , int degistir) {
+		
+		Eleman yeniEleman = new Eleman( sayi );
+		
+		if(doluMu() ) {
+			
+			if( degistir == 0) {
+				
+				yeniEleman.siradaki = bas;
+				bas = yeniEleman;
+				
+			}else {
+				
+				Eleman isaretci1 = null;	
+				Eleman isaretci2 = bas;	
+				
+				int mevcutDegistir = 0;	
+				
+				while( isaretci2 != null && mevcutDegistir < degistir) {
+					
+					isaretci1 = isaretci2;
+					isaretci2 = isaretci2.siradaki;
+					mevcutDegistir++;
+				}
+				if( isaretci2 == null ) {
+					
+					son.siradaki = yeniEleman;
+					son = yeniEleman;
+				}else {
+					yeniEleman.siradaki = isaretci2;
+					isaretci1.siradaki = yeniEleman;
+				}
+			}
+				
+			}else {		
+				bas = yeniEleman;
+				son = yeniEleman;
+			}
+	}	
+	
+	public void bastanSil() {
+		
+		if(doluMu() ) {
+			
+			if( bas == son) {
+				
+				bas = null;
+				son = null;
+				
+			}else {
+				Eleman yeniBas = bas.siradaki;
+				bas.siradaki = null;
+				bas = yeniBas;
+				
+			}
+		}
+	}
+	
+	public void sondanSil() {
+		
+		if(doluMu() ) {
+			
+			if( bas == son) {
+				
+				bas = null;
+				son = null;
+				
+			}else {
+				Eleman isaretci = bas;
+				while( isaretci.siradaki != son) {
+					isaretci = isaretci.siradaki;
+				}
+				isaretci.siradaki = null;
+				son = isaretci;
+			}
+		}
+	}
+	
+	public void listeyiYazdir() {
+		
+		Eleman isaretci = bas;
+		int elemanSayisi = 0;
+		
+		while( isaretci != null) {
+			
+			System.out.print( isaretci.sayi + " ");
+			isaretci = isaretci.siradaki;
+			elemanSayisi++;
+		}
+		System.out.println( );
+		System.out.println("Eleman Sayisi: "+ elemanSayisi);
+		System.out.println( );			
+	}
+	
+	public boolean doluMu() {
+		
+		if( bas != null) {
+			
+			return true;
+		}else {	
+			return false;
+		}
+	}
+}
+

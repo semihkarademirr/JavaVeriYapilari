@@ -1,0 +1,28 @@
+
+public class QueuMain {
+
+	public static void main(String[] args) {
+		
+
+		QueuArray<Integer> q = new QueuArray<>(5);
+		
+		
+		q.enqueue("Musteri 1");
+		q.enqueue("Musteri 2");
+		q.enqueue("Musteri 3");
+		q.enqueue("Musteri 4");
+		q.enqueue("Musteri 5");
+		q.enqueue("Musteri 6");
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		
+		q.enqueue("Musteri 7");
+		q.enqueue("Musteri 8");
+		q.enqueue("Musteri 9");
+		q.printer();
+		
+	}
+
+}

@@ -1,0 +1,75 @@
+
+public class Node {
+
+	
+	int value;
+	Node right;
+	Node left;
+
+	
+	public Node (int val) {
+		
+		this.value = val;
+		right = null;
+		left = null;
+		
+		
+	}
+	
+	public void add(int val) {
+		
+		if (val < value) {
+			
+			if(left == null) {
+				left = new Node(val);
+			
+		}else {
+			left.add(val);
+			
+			}
+			
+		    	}else {
+		    		if(right == null) {
+				
+		    			right = new Node(val);
+			
+		    		}else {
+				
+		    			right.add(val);
+			}
+		}
+	}
+	
+	
+	public void printPreOrder() {
+		
+		System.out.println(this.value);
+		
+		if(left != null) {
+			
+			left.printPreOrder();
+			
+		}
+		
+		if(right != null) {
+			
+			right.printPreOrder();
+		}
+	}
+	
+	
+	public void printInorder() {
+		
+		if(left != null) {
+			left.printInorder();
+		}
+		
+		System.out.println(this.value);
+		
+		if(right != null) {
+			
+			right.printInorder();
+		}
+	}
+	
+}

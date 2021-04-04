@@ -1,0 +1,12 @@
+
+public class market {
+
+	int numara;
+	String isim;
+	
+	market (int numara, String isim){
+		
+		this.numara = numara;
+		this.isim = isim;
+	}
+}

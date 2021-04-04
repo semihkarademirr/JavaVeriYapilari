@@ -1,0 +1,34 @@
+
+public class BinTree {
+
+	Node root = null;
+	
+	public void add(int val) {
+		
+		if(root == null) {
+			
+			root = new Node(val);
+			
+		}else {
+			
+			root.add(val);
+			
+		}
+	}
+	
+	public void printPreOrder() {
+		
+		if(root != null) {
+			
+			root.printPreOrder();
+		}
+	}
+	
+	public void printInOrder() {
+		
+		if(root != null) {
+			
+			root.printInorder();
+		}
+	}
+}
